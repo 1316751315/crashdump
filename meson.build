@@ -10,40 +10,48 @@ project('radius-auth', 'c', 'cpp',
 
 # Include directories
 incdir = include_directories(
-    'apml',
+    'service_files',
+    'include',
 )
 
 # Include dependent library
-#apml_dependencies = []
-#cpp = meson.get_compiler('cpp')
+crashdump_dependencies = []
+cjson = meson.get_compiler('cjson')
 
 
 # Include source file
-apml_src = files(
-    'apml/Apml_fdk.c',
-    'apml/User_platform.c',
-    'apml/Apml_smbus.c
+crashdump_src = files(
+    'utils_triage.cpp',
+    'utils_dbusplus.cpp',
+    'crashdump.cpp',
+    'base64Encode.c',
+    'BigCore.c',
+    'cmdprocessor.c',
+    'crashdump.c',
+    'Crashlog.c',
+    'flow.c',
+    'inputparser.c',
+    'logger.c',
+    'nvd.c',
+    'TorDump.c',
+    'utils.c',
+    'validator.c'
 )
 
 # Make dynamic library
-shared_library( 
-    'openapml', 
-    apml_src ,
+#shared_library( 
+    #'openapml', 
+    #apml_src ,
     #dependencies : apml_dependencies,
-    include_directories : incdir,
+    #include_directories : incdir,
     #name_prefix : '',
     #install : true,
     #install_dir : '/lib/security'
-)
+#)
 
-test_src = files(
-    'apml/Apml_fdk.c',
-    'apml/User_platform.c',
-    'apml/Apml_smbus.c',
-    'apml/test.c'
-)
 executable(
-    'apml-test',
-    test_src,
-    include_directories : incdir
+    'crashdump',
+    crashdump_src,
+    include_directories : incdir,
+    install_dir : '/usr/bin/'
 )
