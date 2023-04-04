@@ -24,18 +24,18 @@ crashdump_src = files(
     'utils_triage.cpp',
     'utils_dbusplus.cpp',
     'crashdump.cpp',
-    'base64Encode.c',
-    'BigCore.c',
-    'cmdprocessor.c',
-    'crashdump.c',
-    'Crashlog.c',
-    'flow.c',
-    'inputparser.c',
-    'logger.c',
-    'nvd.c',
-    'TorDump.c',
-    'utils.c',
-    'validator.c'
+    'engine/base64Encode.c',
+    'engine/BigCore.c',
+    'engine/cmdprocessor.c',
+    'engine/crashdump.c',
+    'engine/Crashlog.c',
+    'engine/flow.c',
+    'engine/inputparser.c',
+    'engine/logger.c',
+    'engine/nvd.c',
+    'engine/TorDump.c',
+    'engine/utils.c',
+    'engine/validator.c'
 )
 
 # Make dynamic library
