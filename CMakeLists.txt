@@ -196,7 +196,8 @@ if (${YOCTO_DEPENDENCIES})
 -Wempty-body \
 -Wignored-qualifiers \
 -Wclobbered \
--Wcast-function-type"
+-Wcast-function-type \
+-DBHS_EGS_BUILD=NO"
     )
 endif ()
 
@@ -228,7 +229,6 @@ if (${TRIAGE_SECTION} OR ${BAFI_NDA_OUTPUT})
         add_definitions (-DBAFI_NDA_OUTPUT)
     endif ()
 endif ()
-
 if (${BHS_EGS_BUILD})
     set (SRC_FILES ${SRC_FILES} engine/Crashlog.c
                                 engine/base64Encode.c
